@@ -1,0 +1,20 @@
+# Organised collection of common file extensions
+
+This project maintains reusable collections of common file extensions
+categorised per typology. It can be used by any program to quickly distinguish
+between file types. It acts faster than mime/type or libmagic recognition, but
+is of course slower.
+
+## Organisation
+
+Each collection is a file named after a generic typology stored in `data/`:
+- archive ::  archives and disc images
+- video ::  moving images
+- audio ::  playable audio
+- text ::  text in human languages
+- code ::  code in machine languages
+
+## Contribute
+
+File a pull request on https://github.com/dyne/file-extension-list
+
