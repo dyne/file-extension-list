@@ -3,7 +3,7 @@
 This project maintains reusable collections of common file extensions
 categorised per typology. It can be used by any program to quickly distinguish
 between file types. It acts faster than mime/type or libmagic recognition, but
-is of course slower.
+is of course less precise.
 
 ## Organisation
 
