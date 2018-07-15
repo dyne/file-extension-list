@@ -8,11 +8,15 @@ libmagic recognition, but is of course less precise.
 ## Organisation
 
 Each collection is a file named after a generic typology stored in `data/`:
-- archive ::  archives and disc images
+- archiv ::  archives and disc images
 - video ::  moving images
 - audio ::  playable audio
 - text ::  text in human languages
 - code ::  code in machine languages
+- image :: static images
+- sheet :: spreadsheets
+- slide :: presentations and slides
+- web :: web developers bread and butter
 
 ## Code
 
