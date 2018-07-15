@@ -17,6 +17,7 @@ Each collection is a file named after a generic typology stored in `data/`:
 - sheet :: spreadsheets
 - slide :: presentations and slides
 - web :: web developers bread and butter
+- font :: typography fonts
 
 ## Code
 
