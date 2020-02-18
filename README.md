@@ -9,15 +9,16 @@ libmagic recognition, but is of course less precise.
 
 Each collection is a file named after a generic typology stored in `data/`:
 - archiv ::  archives and disc images
-- video ::  moving images
 - audio ::  playable audio
-- text ::  text in human languages
+- book :: electronic books
 - code ::  code in machine languages
+- font :: typography fonts
 - image :: static images
 - sheet :: spreadsheets
 - slide :: presentations and slides
+- text ::  text in human languages
+- video ::  moving images
 - web :: web developers bread and butter
-- font :: typography fonts
 
 ## Code
 
