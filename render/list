@@ -8,7 +8,7 @@ for coll in ${(f)"$(find data -type f)"}; do
 	name=${coll##*/}
 	print -n "$name:"
 	for i in ${(f)"$(cat $coll)"}; do
-		print -n " $i"
+		print -n " ${i[(w)1]}"
 	done
 	print
 done

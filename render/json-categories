@@ -1,0 +1,28 @@
+#!/usr/bin/env lua
+
+-- This is free and unencumbered software released into the public domain.
+
+-- This lua script lists all extensions by category
+-- requires lfs and dkjson extensions (found in luarocks)
+lfs = require'lfs'
+json = require'dkjson'
+
+hits={}
+for file in lfs.dir[[data]] do
+   if not (file == "." or file == "..") then
+	  local fd = io.open('data/'..file, 'r')
+	  for ext in fd:lines() do
+		 if ext ~= '' then
+			-- loop for each extension in each file
+
+			if not string.match(ext,"%%") then -- skip % dups
+			   hits[file] = (hits[file]or'')..ext..' '
+			end
+
+			--
+		 end
+	  end
+   end
+end
+
+print( json.encode(hits) )

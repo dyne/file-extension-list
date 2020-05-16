@@ -47,9 +47,10 @@ sheet: ods xls xlsx csv ics vcf
 image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
 video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogg ogv ogm qt rm rmvb roq srt svi vob webm wmv yuv
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3m sid wav wma xm
-archiv: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx deb rpm xz pak crx exe msi bin
-code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb rs sh swift vb vcxproj xcodeproj xml diff patch
-web: html htm css js jsx less scss wasm
+archiv: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
+exec: exe msi bin command sh bat crx
+code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb rs sh swift vb vcxproj xcodeproj xml diff patch html js
+web: html htm css js jsx less scss wasm php
 font: eot otf ttf woff woff2
 slide: ppt odp
 text: doc docx ebook log md msg odt org pages pdf rtf rst tex txt wpd wps
@@ -60,19 +61,24 @@ book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
 
 You are meant to write your own code to parse file-extension-list.
 
-This repository also contain some example code in `render/`.
+To facilitate the task rendered lists are provided
 
-For now it is just a shell script `build-zsh-parser` which renders a
+- [by extension, JSON format](pub/extensions.json)
+- [by category, JSON format](pub/categories.json)
+
+This repository also contain some example code in [render](render).
+
+The shell script [./render/list](render/list) will print a list of categories and extensions associated on each line.
+
+The lua scripts [./render/json-categories](render/json-categories) and [./render/json-extensions](render/json-extensions) will produce key/value maps per-category and per-extension as those distributed in [pub](pub).
+
+The shell script [build-zsh-parser](render/build-zsh-parser) renders a
 file `file-extension-parser.zsh` containing a zsh function
 `file-extension-parser()`; This function can then be called with a
 filename as argument and it will return its category according to the
 archived extensions in `data/`; It relies on a switch case
 construction and two string modifier operations that are completely
 native to zsh.
-
-Other source will be include in the future (as needed or contributed)
-to populate database or key/value stores or generate code in other
-languages.
 
 To contribute please file a pull request on
 https://github.com/dyne/file-extension-list/pulls
@@ -87,7 +93,7 @@ You are welcome to let us know if you are using it too.
 
 ## License
 
-File-extension-list is maintained by Denis @Jaromil Roio
+File-extension-list is maintained by [Jaromil](/jaromil) and [Puria](/puria)
 
 This is free and unencumbered software released into the public domain.
 
