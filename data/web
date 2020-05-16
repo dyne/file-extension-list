@@ -1,8 +1,9 @@
-html
-htm
+html	%
+htm		%
 css
-js
-jsx
+js		%
+jsx		%
 less
 scss
 wasm
+php		%

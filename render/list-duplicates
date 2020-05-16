@@ -13,16 +13,18 @@ for file in lfs.dir[[data]] do
 	  local fd = io.open('data/'..file, 'r')
 	  for ext in fd:lines() do
 		 if ext ~= '' then
-			if hits[ext] then -- dup
-			   dupes[ext] = hits[ext] .. ' + ' .. file
+			local e = string.match(ext,"(%w+)") -- eliminate %
+			if hits[e] then -- dup
+			   dupes[e] = hits[e] .. ' + ' .. file
 			end
-			hits[ext] = file
+			hits[e] = file
 		 end
 	  end
    end
 end
-print("EXT\t\t primary + duplicates")
-print("-------------------------------------")
+
+print("EXT\t\t duplicates")
+print("---------------------------")
 for k,v in pairs(dupes) do
    print(k.."\t\t "..v)
 end

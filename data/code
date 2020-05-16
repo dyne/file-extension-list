@@ -18,7 +18,7 @@ po
 py
 rb
 rs
-sh
+sh		%
 swift
 vb
 vcxproj
@@ -26,3 +26,5 @@ xcodeproj
 xml
 diff
 patch
+html
+js
