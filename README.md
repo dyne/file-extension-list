@@ -8,33 +8,35 @@ libmagic recognition, but is of course less precise.
 ## Organisation
 
 Each category is a file named after a generic typology stored in `data/`:
-- archiv ::  archives and disc images
-- audio ::  playable audio
+- archiv :: archives and disc images
+- audio :: playable audio
 - book :: electronic books
-- code ::  code in machine languages
+- code :: code in machine languages
+- exec :: executable binaries
 - font :: typography fonts
 - image :: static images
 - sheet :: spreadsheets
 - slide :: presentations and slides
-- text ::  text in human languages
-- video ::  moving images
+- text :: text in human languages
+- video :: moving images
 - web :: web developers bread and butter
 
 Inside each category file there is a file extension string on each new
-line.
-
-It is up to you to build a simple parser that checks which category
-file contains the extension you are checking.
+line. This collection is not complete... and knowing how standards go:
+it will never be. [We welcome your
+contribution](https://github.com/dyne/file-extension-list/pulls).
 
 Some extensions (for instance `html`, see #10 and #11) may belong to
-both categories `code` or `web`. In these cases any extra occurrance
-of the extension will be followed by space and a `%` on the same line
-to mark it as duplicate of another categorisation that took priority.
+more than one category: `code` or `web`. In these cases any extra
+occurrance of the extension will be followed by space and a `%` on the
+same line to mark it as duplicate of another categorisation that took
+priority.
 
 To establish the category of a single file one can simply ignore all
 duplicate extensions containing `%` on the same line. Duplicates may
 be useful to establish the category of a directory containing multiple
-files [by means of fuzzy logic](https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
+files [by means of fuzzy
+logic](https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
 
 ## Quick start
 
