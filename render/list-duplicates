@@ -1,0 +1,29 @@
+#!/usr/bin/env lua
+
+-- This is free and unencumbered software released into the public domain.
+
+-- This lua script lists all extensions by category
+-- requires lfs extension (found in luarocks)
+require'lfs'
+
+hits={}
+dupes={}
+for file in lfs.dir[[data]] do
+   if not (file == "." or file == "..") then
+	  local fd = io.open('data/'..file, 'r')
+	  for ext in fd:lines() do
+		 if ext ~= '' then
+			if hits[ext] then -- dup
+			   dupes[ext] = hits[ext] .. ' + ' .. file
+			end
+			hits[ext] = file
+		 end
+	  end
+   end
+end
+print("EXT\t\t primary + duplicates")
+print("-------------------------------------")
+for k,v in pairs(dupes) do
+   print(k.."\t\t "..v)
+end
+
