@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# This is free and unencumbered software released into the public domain.
+
+# This script lists all extensions by category
+
+for coll in ${(f)"$(find data -type f)"}; do
+	name=${coll##*/}
+	print -n "$name:"
+	for i in ${(f)"$(cat $coll)"}; do
+		print -n " $i"
+	done
+	print
+done
