@@ -5,4 +5,9 @@ command
 sh
 bat
 crx
+bash
+csh
+fish
+ksh
+zsh
 
