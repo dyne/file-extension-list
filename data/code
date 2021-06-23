@@ -6,7 +6,9 @@ ads
 asm
 bas
 bash		%
+bat		%
 c
+c++
 cbl
 cc
 class
@@ -28,12 +30,18 @@ for
 fth
 ftn
 go
+groovy
 h
+hh
+hpp
 hs
 html
+hxx
 java
 js
+jsp
 ksh		%
+kt
 lhs
 lisp
 lua
