@@ -1,33 +1,60 @@
+1.ada
+2.ada
+ada
+adb
+ads
+asm
+bas
 bash		%
 c
+cbl
 cc
 class
 clj
+cob
 cpp
 cs
 csh		%
 cxx
+d
 diff
+e
 el
+f
+f77
+f90
 fish		%
+for
+fth
+ftn
 go
 h
+hs
 html
 java
 js
 ksh		%
+lhs
+lisp
 lua
 m
 m4
+nim
 patch
 php
 pl
 po
+pp
 py
+r
 rb
 rs
+s
+scala
 sh		%
+swg
 swift
+v
 vb
 vcxproj
 xcodeproj
