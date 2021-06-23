@@ -5,13 +5,17 @@ clj
 cpp
 cs
 cxx
+diff
 el
 go
 h
+html
 java
+js
 lua
 m
 m4
+patch
 php
 pl
 po
@@ -24,7 +28,3 @@ vb
 vcxproj
 xcodeproj
 xml
-diff
-patch
-html
-js
