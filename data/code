@@ -1,17 +1,21 @@
+bash		%
 c
 cc
 class
 clj
 cpp
 cs
+csh		%
 cxx
 diff
 el
+fish		%
 go
 h
 html
 java
 js
+ksh		%
 lua
 m
 m4
@@ -28,3 +32,4 @@ vb
 vcxproj
 xcodeproj
 xml
+zsh		%
