@@ -1,13 +1,16 @@
 # Organised collection of common file extensions
 
 This project maintains reusable collections of common file extensions
-categorised per typology. It can be used by any program to quickly
-distinguish between file types. It acts faster than mime/type or
-libmagic recognition, but is of course less precise.
+categorised per typology.
+It can be used by any program
+to quickly distinguish between file types.
+It acts faster than mime/type or libmagic recognition,
+but is of course less precise.
 
 ## Organisation
 
 Each category is a file named after a generic typology stored in `data/`:
+
 - archiv :: archives and disc images
 - audio :: playable audio
 - book :: electronic books
@@ -21,22 +24,27 @@ Each category is a file named after a generic typology stored in `data/`:
 - video :: moving images
 - web :: web developers bread and butter
 
-Inside each category file there is a file extension string on each new
-line. This collection is not complete... and knowing how standards go:
-it will never be. [We welcome your
-contribution](https://github.com/dyne/file-extension-list/pulls).
+Inside each category file there is a file extension string
+on each new line.
+This collection is not complete...
+and knowing how standards go: it will never be.
+[We welcome your contribution](
+https://github.com/dyne/file-extension-list/pulls).
 
-Some extensions (for instance `html`, see #10 and #11) may belong to
-more than one category: `code` or `web`. In these cases any extra
-occurrance of the extension will be followed by space and a `%` on the
-same line to mark it as duplicate of another categorisation that took
-priority.
+Some extensions (for instance `html`, see #10 and #11)
+may belong to more than one category:
+`code` or `web`.
+In these cases, any extra occurrence of the extension
+will be followed by space and a `%` on the same line
+to mark it as duplicate of another categorisation
+that took priority.
 
-To establish the category of a single file one can simply ignore all
-duplicate extensions containing `%` on the same line. Duplicates may
-be useful to establish the category of a directory containing multiple
-files [by means of fuzzy
-logic](https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
+To establish the category of a single file
+one can simply ignore all duplicate extensions
+(those containing `%` on the same line).
+Duplicates may be useful to establish the category of a directory
+containing multiple files [by means of fuzzy logic](
+https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
 
 ## Quick start
 
@@ -63,39 +71,45 @@ book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
 
 You are meant to write your own code to parse file-extension-list.
 
-To facilitate the task rendered lists are provided
+To facilitate the task, rendered lists are provided
 
 - [by extension, JSON format](pub/extensions.json)
 - [by category, JSON format](pub/categories.json)
 
-This repository also contain some example code in [render](render).
+This repository also contains some example code in [render](render).
 
-The shell script [./render/list](render/list) will print a list of categories and extensions associated on each line.
+The shell script [./render/list](render/list)
+will print a list of categories and extensions associated on each line.
 
-The lua scripts [./render/json-categories](render/json-categories) and [./render/json-extensions](render/json-extensions) will produce key/value maps per-category and per-extension as those distributed in [pub](pub).
+The lua scripts [./render/json-categories](render/json-categories)
+and [./render/json-extensions](render/json-extensions)
+will produce key/value maps per-category and per-extension
+as those distributed in [pub](pub).
 
-The shell script [build-zsh-parser](render/build-zsh-parser) renders a
-file `file-extension-parser.zsh` containing a zsh function
-`file-extension-parser()`; This function can then be called with a
-filename as argument and it will return its category according to the
-archived extensions in `data/`; It relies on a switch case
-construction and two string modifier operations that are completely
-native to zsh.
+The shell script [build-zsh-parser](render/build-zsh-parser)
+renders a file `file-extension-parser.zsh`
+containing a zsh function `file-extension-parser()`;
+This function can then be called with a filename as argument
+and it will return its category
+according to the archived extensions in `data/`;
+It relies on a switch case construction and two string modifier operations
+that are completely native to zsh.
 
-To contribute please file a pull request on
-https://github.com/dyne/file-extension-list/pulls
+To contribute, please file a pull request on
+<https://github.com/dyne/file-extension-list/pulls>
 
 ## Usage
 
 File-extension-list is used by the software application
-[harvest](https://github.com/dyne/harvest) for fast categorization of
-large amounts of directories containing multiple file types.
+[harvest](https://github.com/dyne/harvest)
+for fast categorization of large amounts of directories
+containing multiple file types.
 
 You are welcome to let us know if you are using it too.
 
 ## License
 
-File-extension-list is maintained by [Jaromil](/jaromil) and [Puria](/puria)
+File-extension-list is maintained by [Jaromil](/jaromil) and [Puria](/puria).
 
 This is free and unencumbered software released into the public domain.
 
