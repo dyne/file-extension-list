@@ -12,7 +12,7 @@ but is of course less precise.
 
 Each category is a file named after a generic typology stored in `data/`:
 
-- archiv :: archives and disc images
+- archive :: archives and disc images
 - audio :: playable audio
 - book :: electronic books
 - code :: code in machine languages
@@ -58,7 +58,7 @@ sheet: ods xls xlsx csv ics vcf
 image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
 video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogg ogv ogm qt rm rmvb roq srt svi vob webm wmv yuv
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3m sid wav wma xm
-archiv: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
+archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
 exec: exe msi bin command sh bat crx
 code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb rs sh swift vb vcxproj xcodeproj xml diff patch html js
 web: html htm css js jsx less scss wasm php
