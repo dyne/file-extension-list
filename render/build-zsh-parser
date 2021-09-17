@@ -4,6 +4,10 @@
 
 # This parser also counts duplicates
 
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+
 parser_file="file-extension-parser.zsh"
 
 cat <<EOF > "$parser_file"
