@@ -30,8 +30,8 @@ jobs:
       run: |
         if ! which zsh
         then
-          apt-get update
-          apt-get install -q -y zsh
+          sudo apt-get update
+          sudo apt-get install -q -y zsh
         fi
 
     - name: Generate JSON files
