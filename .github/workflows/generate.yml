@@ -23,7 +23,8 @@ jobs:
 
     - name: Install Lua JSON library (dependency for JSON generation)
       run: |
-        luarocks install dkjson luafilesystem
+        luarocks install luafilesystem
+        luarocks install dkjson
 
     - name: Install zsh
       if: runner.os == 'Linux'
