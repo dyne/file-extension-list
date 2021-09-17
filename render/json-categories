@@ -25,4 +25,4 @@ for file in lfs.dir[[data]] do
    end
 end
 
-print( json.encode(hits) )
+print( json.encode(hits, { indent = true }) )
