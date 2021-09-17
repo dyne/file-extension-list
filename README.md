@@ -4,7 +4,8 @@ This project maintains reusable collections of common file extensions
 categorised per typology.
 It can be used by any program
 to quickly distinguish between file types.
-It acts faster than mime/type or libmagic recognition,
+It acts faster than mime/type or [libmagic](
+https://www.commandlinux.com/man-page/man3/libmagic.3.html) recognition,
 but is of course less precise.
 
 ## Organisation
