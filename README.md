@@ -89,12 +89,12 @@ as those distributed in [pub](pub).
 
 The shell script [build-zsh-parser](render/build-zsh-parser)
 renders a file `file-extension-parser.zsh`
-containing a zsh function `file-extension-parser()`;
+containing a [`zsh`](https://www.zsh.org/) function `file-extension-parser()`;
 This function can then be called with a filename as argument
 and it will return its category
 according to the archived extensions in `data/`;
 It relies on a switch case construction and two string modifier operations
-that are completely native to zsh.
+that are completely native to `zsh`.
 
 To contribute, please file a pull request on
 <https://github.com/dyne/file-extension-list/pulls>
