@@ -68,16 +68,17 @@ https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
 
 Launch this script `./render/list`
 
-It will print on your terminal all currently known extensions by category:
+It will print on your terminal all currently known extensions by category,
+for example:
 
 ```
 sheet: ods xls xlsx csv ics vcf
-image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
-video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogg ogv ogm qt rm rmvb roq srt svi vob webm wmv yuv
-audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3m sid wav wma xm
-archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
+image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif
+video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov
+audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3
+archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea
 exec: exe msi bin command sh bat crx
-code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb rs sh swift vb vcxproj xcodeproj xml diff patch html js
+code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb
 web: html htm css js jsx less scss wasm php
 font: eot otf ttf woff woff2
 slide: ppt odp
