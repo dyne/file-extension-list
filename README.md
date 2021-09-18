@@ -43,7 +43,7 @@ Each category is a file named after a generic typology stored in `data/`:
 | web | web developers bread and butter |
 
 Inside each category file there is a file extension string
-on each new line.
+in the first column.
 This collection is not complete...
 and knowing how standards go: it will never be.
 [We welcome your contribution](
@@ -53,13 +53,13 @@ Some extensions (for instance `html`, see #10 and #11)
 may belong to more than one category:
 `code` or `web`.
 In these cases, any extra occurrence of the extension
-will be followed by space and a `%` on the same line
+will be marked `%` in the second column,
 to mark it as duplicate of another categorisation
 that took priority.
 
 To establish the category of a single file
 one can simply ignore all duplicate extensions
-(those containing `%` on the same line).
+(those containing `%` in the second column).
 Duplicates may be useful to establish the category of a directory
 containing multiple files [by means of fuzzy logic](
 https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
