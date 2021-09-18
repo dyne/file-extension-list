@@ -2,5 +2,4 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-# (CI) Generated files are placed here
-/public/
+/build/

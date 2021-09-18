@@ -1,0 +1,94 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+
+version() {
+	git describe \
+		--tags \
+		--dirty \
+		--broken \
+		--always \
+		--long \
+		--candidates=99 \
+		--first-parent
+}
+
+print_help() {
+
+	echo "Run all we want to be done in our CI."
+	echo
+	echo "Usage:"
+	echo "         $(basename "$0") [OPTIONS]"
+	echo "Options:"
+	echo "          -h, --help                  Show this help message"=
+	echo "          -s, --install-requirements  Install whatever this script needs to run (works only on Debian/Ubuntu)"
+}
+
+# read command-line args
+POSITIONAL=""
+while [ "$#" -gt 0 ]
+do
+	arg="$1"
+	shift # past argument
+
+	case "$arg" in
+		-h|--help)
+			print_help
+			exit 0
+			;;
+		*) # non-/unknown option
+			POSITIONAL="$POSITIONAL $arg"
+			;;
+	esac
+done
+set -- "${POSITIONAL}" # restore positional parameters
+
+cd "$proj_dir"
+
+echo
+echo "Generate everything ..."
+"$script_dir/build"
+
+echo
+echo "Evaluate git version ..."
+VERSION="$(version)"
+echo "version: $VERSION"
+
+echo
+echo "Creating HTML ('index.html') that links to all the files generated above ..."
+rm -f "$build_dir/index.html"
+{
+	cd "$build_dir"
+
+	echo "<html>"
+	echo "<head>"
+	echo "<title>GitHub project $GITHUB_REPOSITORY - Generated files</title>"
+	echo "</head>"
+	echo "<body>"
+	echo "<h1>GitHub project <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/\">$GITHUB_REPOSITORY</a> - Generated files</h1>"
+	echo "Version: <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$VERSION/\">$VERSION</a><br>"
+	echo "Files:<br>"
+	echo "<ul>"
+	find . -type f | sed -e 's|^\./||' | sort -t . -k 2 | while read -r file
+	do
+		printf '<li><a href="%s">%s</a></li>\n' "$file" "$file"
+	done
+	echo "</ul>"
+	echo "<body>"
+	echo "<html>"
+} > "$proj_dir/index.html"
+mv "$proj_dir/index.html" "$build_dir/index.html"
+
+cd "$proj_dir"
+echo "done."

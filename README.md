@@ -23,6 +23,10 @@ It acts faster than mime/type or [libmagic](
 https://www.commandlinux.com/man-page/man3/libmagic.3.html) recognition,
 but is of course less precise.
 
+The raw data is under [data](data),
+while __generated formats and tools can be found on the [projects pages](
+https://hoijui.github.io/file-extension-list/)__.
+
 ## Organisation
 
 Each category is a file named after a generic typology stored in `data/`:
