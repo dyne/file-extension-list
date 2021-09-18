@@ -27,18 +27,20 @@ but is of course less precise.
 
 Each category is a file named after a generic typology stored in `data/`:
 
-- archive :: archives and disc images
-- audio :: playable audio
-- book :: electronic books
-- code :: code in machine languages
-- exec :: executable binaries
-- font :: typography fonts
-- image :: static images
-- sheet :: spreadsheets
-- slide :: presentations and slides
-- text :: text in human languages
-- video :: moving images
-- web :: web developers bread and butter
+| file.csv | description |
+| --- | ---------- |
+| archive | archives and disc images |
+| audio | playable audio |
+| book | electronic books |
+| code | code in machine languages |
+| exec | executable binaries |
+| font | typography fonts |
+| image | static images |
+| sheet | spreadsheets |
+| slide | presentations and slides |
+| text | text in human languages |
+| video | moving images |
+| web | web developers bread and butter |
 
 Inside each category file there is a file extension string
 on each new line.
