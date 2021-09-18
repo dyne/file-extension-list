@@ -9,11 +9,11 @@ SPDX-License-Identifier: CC0-1.0
 # Organised collection of common file extensions
 
 [![License: Unlicense](
-	https://img.shields.io/badge/License-Unlicense-blue.svg)](
-	https://unlicense.org/)
+    https://img.shields.io/badge/License-Unlicense-blue.svg)](
+    https://unlicense.org/)
 [![REUSE status](
-	https://api.reuse.software/badge/github.com/hoijui/file-extension-list)](
-	https://api.reuse.software/info/github.com/hoijui/file-extension-list)
+    https://api.reuse.software/badge/github.com/hoijui/file-extension-list)](
+    https://api.reuse.software/info/github.com/hoijui/file-extension-list)
 
 This project maintains reusable collections of common file extensions
 categorised per typology.
