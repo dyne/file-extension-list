@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-name: Generate parser & Render in other formats
+name: Generate parser, Render in other formats and host that
 
 on: [push]
 
@@ -13,69 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Install Lua (dependency for JSON generation)
-      uses: leafo/gh-actions-lua@v8.0.0
-      with:
-        luaVersion: "5.1.5"
-
-    - name: Install Lua package manager LuaRocks (dependency for JSON generation)
-      uses: leafo/gh-actions-luarocks@v4.0.0
-
-    - name: Install Lua JSON library (dependency for JSON generation)
-      run: |
-        luarocks install luafilesystem
-        luarocks install dkjson
-
-    - name: Install zsh
-      if: runner.os == 'Linux'
-      run: |
-        if ! which zsh
-        then
-          sudo apt-get update
-          sudo apt-get install -q -y zsh
-        fi
-
-    - name: Generate JSON files
-      run: |
-        mkdir -p public
-        render/json-extensions > public/extensions.json
-        render/json-categories > public/categories.json
-
-    - name: Generate plain-text lists
-      run: |
-        mkdir -p public
-        render/list            > public/list.txt
-        render/list-duplicates > public/list-duplicates.txt
-
-    - name: Generate parser
-      run: |
-        mkdir -p public
-        render/build-zsh-parser
-        mv file-extension-parser.zsh public/
-
-    - name: Generate index.html
-      run: |
-        mkdir -p public
-        cd public
-        VERSION="$(git describe --dirty --tag --always --broken)"
-        {
-          echo "<html>"
-          echo "<head>"
-          echo "<title>GitHub project $GITHUB_REPOSITORY - Generated files</title>"
-          echo "</head>"
-          echo "<body>"
-          echo "<h1>GitHub project <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/\">$GITHUB_REPOSITORY</a> - Generated files</h1>"
-          echo "Version: <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$VERSION/\">$VERSION</a><br>"
-          echo "Files:<br>"
-          echo "<ul>"
-          find . -type f -exec echo "<li><a href=\""{}"\">"{}"</a></li>" \;
-          echo "</ul>"
-          echo "<body>"
-          echo "<html>"
-        } > index.html
+    - name: Generate everything
+      run: scripts/ci-run
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: ./build

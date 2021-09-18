@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+
+# cd to the project root
+cd "$script_dir/.."
+
+build_dir=build
+gen_scripts_dir=render
+
+mkdir -p build
+
+"$gen_scripts_dir/json-extensions" > "$build_dir/extensions.json"
+"$gen_scripts_dir/json-categories" > "$build_dir/categories.json"
+
+"$gen_scripts_dir/list"            > "$build_dir/list.txt"
+"$gen_scripts_dir/list-duplicates" > "$build_dir/list-duplicates.txt"
+
+"$gen_scripts_dir/build-ext2cat" 
