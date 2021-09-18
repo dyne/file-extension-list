@@ -51,7 +51,7 @@ in the first column.
 This collection is not complete...
 and knowing how standards go: it will never be.
 [We welcome your contribution](
-https://github.com/dyne/file-extension-list/pulls).
+https://github.com/hoijui/file-extension-list/pulls).
 
 Some extensions (for instance `html`, see #10 and #11)
 may belong to more than one category:
