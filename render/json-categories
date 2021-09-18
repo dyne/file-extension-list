@@ -16,11 +16,11 @@
 set -eu
 
 script_dir=$(dirname "$(readlink -f "$0")")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+data_dir="$proj_dir/data"
 
-# cd to the project root
-cd "$script_dir/.."
-
-cd data
+cd "$data_dir"
 
 printf "{\n"
 first_outer=true
@@ -53,4 +53,4 @@ do
 done
 printf "\n}\n"
 
-cd ..
+cd "$proj_dir"

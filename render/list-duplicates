@@ -17,11 +17,11 @@
 set -eu
 
 script_dir=$(dirname "$(readlink -f "$0")")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+data_dir="$proj_dir/data"
 
-# cd to the project root
-cd "$script_dir/.."
-
-cd data
+cd "$data_dir"
 
 printf "%s\t%s\t%s\n" "ext" "prim" "others"
 printf "%s\t%s\t%s\n" "---" "----" "------"
@@ -34,4 +34,3 @@ do
 	cat_other="$(grep -r "^$ext," | grep    '%' | sed -e 's/\..*$//' | tr '\n' ',' | sed -e 's/,.*$//')"
 	printf  "%s\t%s\t%s\n" "$ext" "$cat_prime" "$cat_other"
 done
-

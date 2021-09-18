@@ -10,14 +10,13 @@
 set -eu
 
 script_dir=$(dirname "$(readlink -f "$0")")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+gen_scripts_dir="$proj_dir/render"
 
-# cd to the project root
-cd "$script_dir/.."
+cd "$proj_dir"
 
-build_dir=build
-gen_scripts_dir=render
-
-mkdir -p build
+mkdir -p "$build_dir"
 
 "$gen_scripts_dir/json-extensions" > "$build_dir/extensions.json"
 "$gen_scripts_dir/json-categories" > "$build_dir/categories.json"
@@ -25,4 +24,4 @@ mkdir -p build
 "$gen_scripts_dir/list"            > "$build_dir/list.txt"
 "$gen_scripts_dir/list-duplicates" > "$build_dir/list-duplicates.txt"
 
-"$gen_scripts_dir/build-ext2cat" 
+"$gen_scripts_dir/build-ext2cat"
