@@ -1,29 +1,53 @@
-#!/usr/bin/env lua
+#!/usr/bin/env sh
 
--- This is free and unencumbered software released into the public domain.
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+# SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
+# SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
+#
+# SPDX-License-Identifier: Unlicense
 
--- This lua script lists all extensions by category
--- requires lfs extension (found in luarocks)
-lfs = require'lfs'
-json = require'dkjson'
+# This is free and unencumbered software released into the public domain.
 
-hits={}
-dupes={}
-for file in lfs.dir[[data]] do
-   if not (file == "." or file == "..") then
-	  local fd = io.open('data/'..file, 'r')
-	  for ext in fd:lines() do
-		 if ext ~= '' then
-			-- loop for each extension in each file
+# This script lists all categories by extension in JSON format.
 
-			if not string.match(ext,"%%") then -- skip %
-			   hits[ext] = file
-			end
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
 
-			--
-		 end
-	  end
-   end
-end
+script_dir=$(dirname "$(readlink -f "$0")")
 
-print( json.encode(hits, { indent = true }) )
+# cd to the project root
+cd "$script_dir/.."
+
+cd data
+
+grep -r "" ./*.csv \
+	| sed -e 's|^\./||' -e 's/\.csv//' -e 's/,.*$//' \
+	| sort -t : -k 2 \
+	| awk -F : -e '
+		BEGIN {
+			prev_ext=""
+			first_ext=1
+			printf "{\n"
+		}
+		{
+			ext=$2
+			cat=$1
+			if (ext == prev_ext) {
+				printf ", \"%s\"", cat
+			} else {
+				if (!first_ext) {
+					printf "],\n"
+				}
+				printf "\t\"%s\": [\"%s\"", ext, cat
+				prev_ext=ext
+			}
+			first_ext=0
+		}
+		END {
+			printf "]\n}\n"
+		}
+	'
+
+cd ..

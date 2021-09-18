@@ -1,28 +1,56 @@
-#!/usr/bin/env lua
+#!/usr/bin/env sh
 
--- This is free and unencumbered software released into the public domain.
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+# SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
+# SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
+#
+# SPDX-License-Identifier: Unlicense
 
--- This lua script lists all extensions by category
--- requires lfs and dkjson extensions (found in luarocks)
-lfs = require'lfs'
-json = require'dkjson'
+# This is free and unencumbered software released into the public domain.
 
-hits={}
-for file in lfs.dir[[data]] do
-   if not (file == "." or file == "..") then
-	  local fd = io.open('data/'..file, 'r')
-	  for ext in fd:lines() do
-		 if ext ~= '' then
-			-- loop for each extension in each file
+# This script lists all extensions by category in JSON format.
 
-			if not string.match(ext,"%%") then -- skip % dups
-			   hits[file] = (hits[file]or'')..ext..' '
-			end
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
 
-			--
-		 end
-	  end
-   end
-end
+script_dir=$(dirname "$(readlink -f "$0")")
 
-print( json.encode(hits, { indent = true }) )
+# cd to the project root
+cd "$script_dir/.."
+
+cd data
+
+printf "{\n"
+first_outer=true
+for file in *.csv
+do
+	if $first_outer
+	then
+		first_outer=false
+	else
+		# still on the previous entries line
+		printf ",\n"
+	fi
+	cat="$(echo "$file" | sed -e 's/\.csv$//')"
+	printf "\t\"%s\": [\n" "$cat"
+	first_inner=true
+	while read -r line
+	do
+		if $first_inner
+		then
+			first_inner=false
+		else
+			# still on the previous entries line
+			printf ",\n"
+		fi
+		ext=$(echo "$line" | sed -e 's/,.*$//')
+		printf "\t\t\"%s\"" "$ext"
+	done < "$file"
+
+	printf "\n\t]"
+done
+printf "\n}\n"
+
+cd ..
