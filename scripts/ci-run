@@ -12,6 +12,7 @@ set -eu
 script_dir=$(dirname "$(readlink -f "$0")")
 proj_dir="$(cd "$script_dir"/..; pwd)"
 build_dir="$proj_dir/build"
+data_dir="$proj_dir/data"
 
 version() {
 	git describe \
@@ -65,9 +66,17 @@ echo "Generate everything ..."
 "$script_dir/build"
 
 echo
-echo "Evaluate git version ..."
-VERSION="$(version)"
-echo "version: $VERSION"
+echo "Evaluate project meta-data ..."
+version="$(version)"
+server_url="${GITHUB_SERVER_URL:-"https://github.com"}"
+proj_dir_name="$(basename "$proj_dir")"
+proj_slug="${GITHUB_REPOSITORY:-"$USER/$proj_dir_name"}"
+proj_name="$(echo "$proj_slug" | sed -e 's|^.*/||')"
+proj_url="$server_url/$proj_slug"
+echo "version: $version"
+echo "name:    $proj_name"
+echo "slug:    $proj_slug"
+echo "URL:     $proj_url"
 
 echo
 echo "Creating HTML ('index.html') that links to all the files generated above ..."
@@ -76,11 +85,11 @@ echo "Creating HTML ('index.html') that links to all the files generated above .
 
 	echo "<html>"
 	echo "<head>"
-	echo "<title>GitHub project $GITHUB_REPOSITORY - Generated files</title>"
+	echo "<title>GitHub project $proj_slug - Generated files</title>"
 	echo "</head>"
 	echo "<body>"
-	echo "<h1>GitHub project <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/\">$GITHUB_REPOSITORY</a> - Generated files</h1>"
-	echo "Version: <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$VERSION/\">$VERSION</a><br>"
+	echo "<h1>GitHub project <a href=\"$proj_url/\">$proj_slug</a> - Generated files</h1>"
+	echo "Version: <a href=\"$proj_url/tree/$version/\">$version</a><br>"
 	echo "Files:<br>"
 	echo "<ul>"
 	find . -type f | sed -e 's|^\./||' | sort -t . -k 2 | while read -r file
