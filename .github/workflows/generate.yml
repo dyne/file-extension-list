@@ -21,3 +21,9 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
+
+    - name: Upload job artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: all-data
+        path: ./build/*.zip

@@ -79,6 +79,18 @@ echo "slug:    $proj_slug"
 echo "URL:     $proj_url"
 
 echo
+echo "Generate package/artifact ..."
+package="${proj_name}_all-data_$version"
+package_dir="$proj_dir/$package"
+package_file="$build_dir/${package}.zip"
+cd "$proj_dir"
+mkdir -p "$package_dir"
+cp -r "$build_dir/"* "$package_dir/"
+cp -r "$data_dir/"* "$package_dir/"
+zip -r "$package_file" "$package_dir"
+rm -Rf "$package_dir"
+
+echo
 echo "Creating HTML ('index.html') that links to all the files generated above ..."
 {
 	cd "$build_dir"
