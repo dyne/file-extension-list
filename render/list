@@ -1,14 +1,30 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+# SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
+# SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
+#
+# SPDX-License-Identifier: Unlicense
 
 # This is free and unencumbered software released into the public domain.
 
-# This script lists all extensions by category
+# This script lists all extensions by category.
 
-for coll in ${(f)"$(find data -type f)"}; do
-	name=${coll##*/}
-	print -n "$name:"
-	for i in ${(f)"$(cat $coll)"}; do
-		print -n " ${i[(w)1]}"
-	done
-	print
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+
+# cd to the project root
+cd "$script_dir/.."
+
+cd data
+
+for file in ./*.csv
+do
+	printf "%s:" "$(basename --suffix=".csv" "$file")"
+	awk -F , -e '{ printf(" %s", $1); }' "$file"
+	printf "\n"
 done

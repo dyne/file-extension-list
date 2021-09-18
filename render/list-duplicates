@@ -1,30 +1,37 @@
-#!/usr/bin/env lua
+#!/usr/bin/env sh
 
--- This is free and unencumbered software released into the public domain.
+# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+# SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
+# SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
+#
+# SPDX-License-Identifier: Unlicense
 
--- This lua script lists all extensions by category
--- requires lfs extension (found in luarocks)
-require'lfs'
+# This is free and unencumbered software released into the public domain.
 
-hits={}
-dupes={}
-for file in lfs.dir[[data]] do
-   if not (file == "." or file == "..") then
-	  local fd = io.open('data/'..file, 'r')
-	  for ext in fd:lines() do
-		 if ext ~= '' then
-			local e = string.match(ext,"(%w+)") -- eliminate %
-			if hits[e] then -- dup
-			   dupes[e] = hits[e] .. ' + ' .. file
-			end
-			hits[e] = file
-		 end
-	  end
-   end
-end
+# This script lists all duplicate extensions,
+# and the categories they are contained in.
 
-print("EXT\t\t duplicates")
-print("---------------------------")
-for k,v in pairs(dupes) do
-   print(k.."\t\t "..v)
-end
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+
+# cd to the project root
+cd "$script_dir/.."
+
+cd data
+
+printf "%s\t%s\t%s\n" "ext" "prim" "others"
+printf "%s\t%s\t%s\n" "---" "----" "------"
+
+grep -r ",%" ./*.csv \
+	| sed -e 's/^.*://' -e 's/,.*$//' \
+	| while read -r ext
+do
+	cat_prime="$(grep -r "^$ext," | grep -v '%' | sed -e 's/\..*$//')"
+	cat_other="$(grep -r "^$ext," | grep    '%' | sed -e 's/\..*$//' | tr '\n' ',' | sed -e 's/,.*$//')"
+	printf  "%s\t%s\t%s\n" "$ext" "$cat_prime" "$cat_other"
+done
+
