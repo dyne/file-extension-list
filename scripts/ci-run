@@ -57,6 +57,10 @@ set -- "${POSITIONAL}" # restore positional parameters
 cd "$proj_dir"
 
 echo
+echo "Delete old CI files ..."
+rm -Rf "$build_dir"
+
+echo
 echo "Generate everything ..."
 "$script_dir/build"
 
@@ -67,7 +71,6 @@ echo "version: $VERSION"
 
 echo
 echo "Creating HTML ('index.html') that links to all the files generated above ..."
-rm -f "$build_dir/index.html"
 {
 	cd "$build_dir"
 
