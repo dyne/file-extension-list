@@ -1,3 +1,11 @@
+<!--
+SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
+SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
+SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Organised collection of common file extensions
 
 This project maintains reusable collections of common file extensions
