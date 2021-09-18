@@ -94,4 +94,5 @@ echo "Creating HTML ('index.html') that links to all the files generated above .
 mv "$proj_dir/index.html" "$build_dir/index.html"
 
 cd "$proj_dir"
+echo
 echo "done."
