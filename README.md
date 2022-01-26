@@ -34,7 +34,7 @@ https://github.com/dyne/file-extension-list).
 
 ## Organisation
 
-Each category is a file named after a generic typology stored in `data/`:
+Each category is a file named after a generic typology stored in `data/categories/`:
 
 | file.csv | description |
 | --- | ---------- |
