@@ -1,0 +1,15 @@
+ext	prim	others
+---	----	------
+bash	exec	code
+bat	exec	code
+csh	exec	code
+fish	exec	code
+ksh	exec	code
+sh	exec	code
+zsh	exec	code
+yuv	video	image
+html	code	web
+htm	code	web
+js	code	web
+jsx	code	web
+php	code	web
