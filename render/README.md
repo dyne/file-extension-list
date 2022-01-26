@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2020-2021 Dyne.org foundation <info@dyne.org>
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # File Extension List render scripts
 
 The shell script [list](list) will print a list of

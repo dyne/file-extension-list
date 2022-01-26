@@ -1,8 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2020 Jaromil <jaromil@dyne.org>
-SPDX-FileCopyrightText: 2020 Puria Nafisi Azizi <puria@dyne.org>
-SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
-
+SPDX-FileCopyrightText: 2020-2021 Dyne.org foundation <info@dyne.org>
 SPDX-License-Identifier: CC0-1.0
 -->
 

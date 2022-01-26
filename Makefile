@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020-2021 Dyne.org foundation <info@dyne.org>
+# SPDX-License-Identifier: CC0-1.0
+
 ##@ General
 
 help: ## Display this help.
@@ -13,6 +16,9 @@ json-categories: ## build the json dictionary for { category: [ extensions.. ], 
 
 json-extensions: ## build the json dictionary for { extension: [ category ], .. }
 	@sh ./render/json-extensions
+
+shell-script: ## creates a shell script capable of parsing extensions
+	@sh ./render/build-ext2cat
 
 release: ## update the local render in pub/ for release
 	@mkdir -p pub

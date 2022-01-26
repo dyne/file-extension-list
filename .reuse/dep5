@@ -1,10 +1,12 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: file-extension-list
 Upstream-Contact: Jaromil <jaromil@dyne.org>
-Source: https://github.com/hoijui/file-extension-list
+Source: https://github.com/dyne/file-extension-list
 
 Files: data/*.csv
-Copyright: Jaromil <jaromil@dyne.org>
-Copyright: Puria Nafisi Azizi <puria@dyne.org>
+Copyright: Dyne.org foundation <info@dyne.org>
 License: CC0-1.0
 
+Files: pub/*.json
+Copyright: Dyne.org foundation <info@dyne.org>
+License: CC0-1.0
