@@ -12,20 +12,27 @@ SPDX-License-Identifier: CC0-1.0
     https://img.shields.io/badge/License-Unlicense-blue.svg)](
     https://unlicense.org/)
 [![REUSE status](
-    https://api.reuse.software/badge/github.com/hoijui/file-extension-list)](
-    https://api.reuse.software/info/github.com/hoijui/file-extension-list)
+    https://api.reuse.software/badge/github.com/dyne/file-extension-list)](
+    https://api.reuse.software/info/github.com/dyne/file-extension-list)
+
+## TL;DR
+
+- [List organized by extension, JSON format](pub/extensions.json)
+- [List organized by category, JSON format](pub/categories.json)
+
+## Introduction
 
 This project maintains reusable collections of common file extensions
-categorised per typology.
-It can be used by any program
-to quickly distinguish between file types.
+categorised per typology. It can be used by any program to quickly
+distinguish between file types.
+
 It acts faster than mime/type or [libmagic](
-https://www.commandlinux.com/man-page/man3/libmagic.3.html) recognition,
-but is of course less precise.
+https://www.commandlinux.com/man-page/man3/libmagic.3.html)
+recognition, but is of course less precise.
 
 The raw data is under [data](data),
 while __generated formats and tools can be found on the [projects pages](
-https://hoijui.github.io/file-extension-list/)__.
+https://github.com/dyne/file-extension-list).
 
 ## Organisation
 
@@ -51,7 +58,7 @@ in the first column.
 This collection is not complete...
 and knowing how standards go: it will never be.
 [We welcome your contribution](
-https://github.com/hoijui/file-extension-list/pulls).
+https://github.com/dyne/file-extension-list/pulls).
 
 Some extensions (for instance `html`, see #10 and #11)
 may belong to more than one category:
@@ -70,53 +77,50 @@ https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
 
 ## Quick start
 
-Launch this script `./render/list`
+The current data is available for download in JSON format:
 
-It will print on your terminal all currently known extensions by category,
-for example:
+- [List organized by extension, JSON format](pub/extensions.json)
+- [List organized by category, JSON format](pub/categories.json)
+
+To change extensions and categories one can edit them inside the
+`data/` directory and then use `make` to render new JSON files:
 
 ```
-sheet: ods xls xlsx csv ics vcf
-image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif
-video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov
-audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3
-archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea
-exec: exe msi bin command sh bat crx
-code: c cc class clj cpp cs cxx el go h java lua m m4 php pl po py rb
-web: html htm css js jsx less scss wasm php
+Usage:
+  make <target>
+
+General
+  help             Display this help.
+  list             list all categories and extensions
+  dups             list all duplicate extensions present in more categories
+  json-categories  build the json dictionary for { category: [ extensions.. ], .. }
+  json-extensions  build the json dictionary for { extension: [ category ], .. }
+  release          update the local render in pub/ for release
+```
+
+Launching `make list` will print on your terminal all currently known
+extensions by category, for example:
+
+```
+archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
+audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3m sid wav wma xm
+book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
+code: 1.ada 2.ada ada adb ads asm bas bash bat c c++ cbl cc class clj cob cpp cs csh cxx d diff e el f f77 f90 fish for fth ftn go groovy h hh hpp hs html htm hxx java js jsx jsp ksh kt lhs lisp lua m m4 nim patch php pl po pp py r rb rs s scala sh swg swift v vb vcxproj xcodeproj xml zsh
+exec: exe msi bin command sh bat crx bash csh fish ksh zsh
 font: eot otf ttf woff woff2
+image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
+sheet: ods xls xlsx csv ics vcf
 slide: ppt odp
 text: doc docx ebook log md msg odt org pages pdf rtf rst tex txt wpd wps
-book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
+video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogg ogv ogm qt rm rmvb roq srt svi vob webm wmv yuv
+web: html htm css js jsx less scss wasm php
 ```
 
 ## Code
 
 You are meant to write your own code to parse file-extension-list.
 
-To facilitate the task, rendered lists are provided
-
-- [by extension, JSON format](pub/extensions.json)
-- [by category, JSON format](pub/categories.json)
-
-This repository also contains some example code in [render](render).
-
-The shell script [./render/list](render/list)
-will print a list of categories and extensions associated on each line.
-
-The lua scripts [./render/json-categories](render/json-categories)
-and [./render/json-extensions](render/json-extensions)
-will produce key/value maps per-category and per-extension
-as those distributed in [pub](pub).
-
-The shell script [build-zsh-parser](render/build-zsh-parser)
-renders a file `file-extension-parser.zsh`
-containing a [`zsh`](https://www.zsh.org/) function `file-extension-parser()`;
-This function can then be called with a filename as argument
-and it will return its category
-according to the archived extensions in `data/`;
-It relies on a switch case construction and two string modifier operations
-that are completely native to `zsh`.
+This repository contains some example code in [./render](render).
 
 To contribute, please file a pull request on
 <https://github.com/dyne/file-extension-list/pulls>
@@ -132,7 +136,7 @@ You are welcome to let us know if you are using it too.
 
 ## License
 
-File-extension-list is maintained by [Jaromil](/jaromil) and [Puria](/puria).
+File-extension-list is maintained by [Jaromil](/jaromil), [Puria](/puria) and [Hoijui](/hoijui).
 
 This is free and unencumbered software released into the public domain.
 
