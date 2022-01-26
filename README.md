@@ -26,12 +26,13 @@ This project maintains reusable collections of common file extensions
 categorised per typology. It can be used by any program to quickly
 distinguish between file types.
 
-It acts faster than mime/type or [libmagic](
-https://www.commandlinux.com/man-page/man3/libmagic.3.html)
-recognition, but is of course less precise.
+Such an approach works much faster than recognition by mime/type or using
+[libmagic](
+https://www.commandlinux.com/man-page/man3/libmagic.3.html), but is of
+course less precise.
 
-The raw data is under [data](data),
-while __generated formats and tools can be found on the [projects pages](
+The raw data is under [data](data), while generated formats and tools
+can be found on the [projects pages](
 https://github.com/dyne/file-extension-list).
 
 ## Organisation
