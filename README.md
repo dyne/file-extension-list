@@ -40,18 +40,18 @@ Each category is a file named after a generic typology stored in `data/categorie
 
 | file.csv | description |
 | --- | ---------- |
-| archive | archives and disc images |
-| audio | playable audio |
-| book | electronic books |
-| code | code in machine languages |
-| exec | executable binaries |
-| font | typography fonts |
-| image | static images |
-| sheet | spreadsheets |
-| slide | presentations and slides |
-| text | text in human languages |
-| video | moving images |
-| web | web developers bread and butter |
+| [archive](data/categories/archive.csv)  | archives and disc images |
+| [audio](data/categories/audio.csv)  | playable audio |
+| [book](data/categories/book.csv)  | electronic books |
+| [code](data/categories/code.csv)  | code in machine languages |
+| [exec](data/categories/exec.csv)  | executable binaries |
+| [font](data/categories/font.csv)  | typography fonts |
+| [image](data/categories/image.csv)  | static images |
+| [sheet](data/categories/sheet.csv)  | spreadsheets |
+| [slide](data/categories/slide.csv)  | presentations and slides |
+| [text](data/categories/text.csv)  | text in human languages |
+| [video](data/categories/video.csv)  | moving images |
+| [web](data/categories/web.csv)  | web developers bread and butter |
 
 Inside each category file there is a file extension string
 in the first column.
