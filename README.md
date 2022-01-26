@@ -34,6 +34,8 @@ https://github.com/dyne/file-extension-list).
 
 ## Organisation
 
+### Categories
+
 Each category is a file named after a generic typology stored in `data/categories/`:
 
 | file.csv | description |
@@ -72,6 +74,17 @@ one can simply ignore all duplicate extensions
 Duplicates may be useful to establish the category of a directory
 containing multiple files [by means of fuzzy logic](
 https://github.com/dyne/file-extension-list/pull/10#issuecomment-529363535).
+
+### Extensions
+
+The file [`data/extensions.csv`](data/extensions.csv)
+contains meta-data per file-extension.
+The columns explained:
+
+| column number: | 1. | 2. | 3. |
+| --- | --- | --- | --- | --- |
+| title: | file-extension | open/closed/uncategorized | text/binary/uncategorized |
+| possible values: | `*` | `o/c/-` | `t/b/-` |
 
 ## Quick start
 
