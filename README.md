@@ -82,7 +82,7 @@ contains meta-data per file-extension.
 The columns explained:
 
 | column number: | 1. | 2. | 3. |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title: | file-extension | open/closed/uncategorized | text/binary/uncategorized |
 | possible values: | `*` | `o/c/-` | `t/b/-` |
 
