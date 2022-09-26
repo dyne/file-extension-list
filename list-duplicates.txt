@@ -8,8 +8,16 @@ ksh	exec	code
 sh	exec	code
 zsh	exec	code
 yuv	video	image
-html	code	web
+asp	code	web
+aspx	code	web
 htm	code	web
+html	code	web
+inc	code	web
 js	code	web
+jsp	code	web
 jsx	code	web
 php	code	web
+php3	code	web
+php4	code	web
+php5	code	web
+phtml	code	web
