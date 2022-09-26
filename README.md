@@ -30,7 +30,7 @@ course less precise.
 
 The raw data is under [data](data), while generated formats and tools
 can be found on the [projects pages](
-https://github.com/dyne/file-extension-list).
+https://dyne.github.io/file-extension-list).
 
 ## Organisation
 
