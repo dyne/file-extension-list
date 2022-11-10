@@ -147,7 +147,7 @@
 	"odp": ["slide"],
 	"ods": ["sheet"],
 	"odt": ["text"],
-	"ogg": ["video"],
+	"ogg": ["audio"],
 	"ogm": ["video"],
 	"ogv": ["video"],
 	"org": ["text"],
