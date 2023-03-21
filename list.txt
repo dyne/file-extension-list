@@ -5,7 +5,7 @@ code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj c
 exec: exe msi bin command sh bat crx bash csh fish ksh zsh
 font: eot otf ttf woff woff2
 image: 3dm 3ds max bmp dds gif jpg jpeg png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
-sheet: ods xls xlsx csv ics vcf
+sheet: ods xls xlsx csv tsv ics vcf
 slide: ppt odp
 text: doc docx ebook log md msg odt org pages pdf rtf rst tex txt wpd wps
 video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogv ogm qt rm rmvb roq srt svi vob webm wmv yuv

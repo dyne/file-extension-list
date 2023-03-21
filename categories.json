@@ -201,6 +201,7 @@
 		"xls",
 		"xlsx",
 		"csv",
+		"tsv",
 		"ics",
 		"vcf"
 	],

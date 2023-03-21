@@ -205,6 +205,7 @@
 	"tif": ["image"],
 	"tiff": ["image"],
 	"tlz": ["archive"],
+	"tsv": ["sheet"],
 	"ttf": ["font"],
 	"txt": ["text"],
 	"v": ["code"],
