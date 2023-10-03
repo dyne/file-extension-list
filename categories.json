@@ -29,6 +29,7 @@
 		"xpi",
 		"zip",
 		"zipx",
+		"zst",
 		"xz",
 		"pak"
 	],
@@ -131,6 +132,7 @@
 		"pl",
 		"po",
 		"pp",
+		"prql",
 		"py",
 		"r",
 		"rb",
@@ -138,6 +140,7 @@
 		"s",
 		"scala",
 		"sh",
+		"sql",
 		"swg",
 		"swift",
 		"v",
@@ -145,6 +148,7 @@
 		"vcxproj",
 		"xcodeproj",
 		"xml",
+		"zig",
 		"zsh"
 	],
 	"exec": [
@@ -172,11 +176,14 @@
 		"3dm",
 		"3ds",
 		"max",
+		"avif",
 		"bmp",
 		"dds",
 		"gif",
+		"heif",
 		"jpg",
 		"jpeg",
+		"jxl",
 		"png",
 		"psd",
 		"xcf",
@@ -207,6 +214,7 @@
 	],
 	"slide": [
 		"ppt",
+		"pptx",
 		"odp"
 	],
 	"text": [
@@ -280,6 +288,8 @@
 		"php5",
 		"phtml",
 		"scss",
+		"ts",
+		"tsx",
 		"wasm"
 	]
 }
