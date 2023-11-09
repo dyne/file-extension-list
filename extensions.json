@@ -105,6 +105,7 @@
 	"jpeg": ["image"],
 	"jpg": ["image"],
 	"js": ["code", "web"],
+	"json": ["code"],
 	"jsp": ["code", "web"],
 	"jsx": ["code", "web"],
 	"jxl": ["image"],
