@@ -154,6 +154,7 @@
 	"ogg": ["audio"],
 	"ogm": ["video"],
 	"ogv": ["video"],
+	"ogx": ["video"],
 	"org": ["text"],
 	"otf": ["font"],
 	"pages": ["text"],
