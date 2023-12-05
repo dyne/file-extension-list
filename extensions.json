@@ -113,6 +113,7 @@
 	"kmz": ["image"],
 	"ksh": ["code", "exec"],
 	"kt": ["code"],
+	"kts": ["code"],
 	"less": ["web"],
 	"lha": ["archive"],
 	"lhs": ["code"],
