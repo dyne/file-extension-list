@@ -1,4 +1,16 @@
 {
+	"3D": [
+		"3ds",
+		"f3d",
+		"3mf",
+		"smt",
+		"stp",
+		"step",
+		"stl",
+		"obj",
+		"gcode",
+		"scad"
+	],
 	"archive": [
 		"7z",
 		"a",

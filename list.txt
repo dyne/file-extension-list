@@ -1,3 +1,4 @@
+3D: 3ds f3d 3mf smt stp step stl obj gcode scad
 archive: 7z a aar apk ar bz2 br cab cpio deb dmg egg gz iso jar lha lz lz4 lzma lzo mar pea rar rpm s7z shar tar tbz2 tgz tlz txz war whl xpi zip zipx zst xz pak
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa ogg pls ra s3m sid wav wma xm
 book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
