@@ -1,4 +1,4 @@
-archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx zst xz pak
+archive: 7z a aar apk ar bz2 br cab cpio deb dmg egg gz iso jar lha lz lz4 lzma lzo mar pea rar rpm s7z shar tar tbz2 tgz tlz txz war whl xpi zip zipx zst xz pak
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa ogg pls ra s3m sid wav wma xm
 book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
 code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj cob cpp cs csh cxx d diff e el f f77 f90 fish for fth ftn go groovy h hh hpp hs htm html hxx inc java js json jsp jsx ksh kt kts lhs lisp lua m m4 nim patch php php3 php4 php5 phtml pl po pp prql py r rb rs s scala sh sql swg swift v vb vcxproj xcodeproj xml zig zsh
