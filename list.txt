@@ -5,9 +5,9 @@ book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
 code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj cob cpp cs csh cxx d diff dll e el f f77 f90 fish for fth ftn go groovy h hh hpp hs htm html hxx inc java js json jsp jsx ksh kt kts lhs lisp lua m m4 nim patch php php3 php4 php5 phtml pl po pp prql py ps1 psd1 psm1 ps1xml psc1 pssc psrc r rb rs s scala sh sql swg swift v vb vcxproj wll xcodeproj xml xll zig zsh
 exec: exe msi bin command sh bat crx bash csh fish ksh zsh
 font: eot otf ttf woff woff2
-image: 3dm 3ds max avif bmp dds gif heif jpg jpeg jxl png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
+image: 3dm 3ds max avif bmp dds gif heic heif jpg jpeg jxl png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
 sheet: ods xls xlsx csv tsv ics vcf
 slide: ppt pptx odp
 text: doc docx ebook log md msg odt org pages pdf rtf rst tex txt wpd wps
-video: 3g2 3gp aaf asf avchd avi drc flv m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mxf nsv ogv ogm ogx qt rm rmvb roq srt svi vob webm wmv yuv
+video: 3g2 3gp aaf asf avchd avi car dav drc flv m2v m2ts m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mts mxf nsv ogv ogm ogx qt rm rmvb roq srt svi vob webm wmv xba yuv
 web: asp aspx css htm html inc js jsp jsx less php php3 php4 php5 phtml scss ts tsx wasm
