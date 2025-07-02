@@ -1,6 +1,8 @@
 exe,
 msi,
 bin,
+cmd,
+com,
 command,
 sh,
 bat,
