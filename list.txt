@@ -1,9 +1,9 @@
 3D: 3ds f3d 3mf smt stp step stl obj gcode scad
 archive: 7z a aar apk ar bz2 br cab cpio deb dmg egg gz iso jar lha lz lz4 lzma lzo mar pea rar rpm s7z shar tar tbz2 tgz tlz txz war whl xpi zip zipx zst xz pak
-audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa ogg pls ra s3m sid wav wma xm
+audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa ogg opus pls ra s3m sid wav wma xm
 book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
 code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj cob cpp cs csh cxx d diff dll e el f f77 f90 fish for fth ftn go groovy h hh hpp hs htm html hxx inc java js json jsp jsx ksh kt kts lhs lisp lua m m4 nim patch php php3 php4 php5 phtml pl po pp prql py ps1 psd1 psm1 ps1xml psc1 pssc psrc r rb rs s scala sh sql swg swift v vb vcxproj wll xcodeproj xml xll zig zsh
-exec: exe msi bin command sh bat crx bash csh fish ksh zsh
+exec: exe msi bin cmd com command sh bat crx bash csh fish ksh zsh
 font: eot otf ttf woff woff2
 image: 3dm 3ds max avif bmp dds gif heic heif jpg jpeg jxl png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
 sheet: ods xls xlsx csv tsv ics vcf
