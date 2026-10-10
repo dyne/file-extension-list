@@ -1,0 +1,104 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2026 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_path=$(readlink -f "$0")
+script_dir=$(dirname "$script_path")
+script_name=$(basename "$script_path")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+tmp_dir="$build_dir/tmp"
+data_dir_rel="data"
+data_dir="$proj_dir/$data_dir_rel"
+
+exit_code=0
+fix=false
+
+print_help() {
+
+	echo "$script_name - Check if the data files content"
+	echo "is in alphabetical order."
+	echo "Also allows to fix the order."
+	echo
+	echo "Usage:"
+	echo "  $script_name [OPTION...]"
+	echo "Options:"
+	echo "  -h, --help"
+	echo "    Show this help message and exit"
+	echo "  --fix"
+	echo "    Sorts the data files in alphabetical order"
+}
+
+# NOTE We use AWK for sorting instead of the CLI `sort`,
+#      because the later changes its sort order between versions.
+_sort() {
+	file="$1"
+	awk '{ lines[NR] = $0 } END { n = asort(lines); for(i=1; i<=n; i++) print lines[i] }' "$file"
+}
+
+# read command-line args
+i=1
+while [ "$i" -le "$#" ]
+do
+	arg="$(eval "echo \$$i")"
+
+	case "$arg" in
+		-h|--help)
+			shift "$i"
+			print_help
+			exit 0
+			;;
+		--fix)
+			shift "$i"
+			fix=true
+			;;
+		*) # non-/unknown option
+			i=$((i + 1))
+			;;
+	esac
+done
+
+
+mkdir -p "$build_dir"
+mkdir -p "$tmp_dir"
+
+cd "$data_dir"
+data_files_listing="$tmp_dir/data_files_listing.tsv"
+find . -name '*.csv' | sed -e 's|^\./||' > "$data_files_listing"
+while read -r csv
+do
+    sorted_csv="$tmp_dir/$(echo "$csv" | tr '/' '__')"
+    _sort "$csv" > "$sorted_csv"
+    if ! diff -q "$csv" "$sorted_csv" > /dev/null
+    then
+        if $fix
+        then
+            _sort "$csv" > "$sorted_csv"
+            mv "$sorted_csv" "$csv"
+        else
+            >&2 echo "WARNING: Data file is not sorted: $csv"
+            >&2 echo "DEBUG: diff:"
+            >&2 diff "$csv" "$sorted_csv"
+            exit_code=64
+        fi
+    fi
+done < "$data_files_listing"
+
+if [ $exit_code -eq 64 ]
+then
+	{
+	echo "WARNING: You may sort all data files with:"
+	echo "         $script_path --fix"
+	} >&2
+fi
+
+rm -Rf "$tmp_dir"
+
+exit $exit_code
