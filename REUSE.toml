@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "file-extension-list"
+SPDX-PackageSupplier = "Jaromil <jaromil@dyne.org>"
+SPDX-PackageDownloadLocation = "https://github.com/dyne/file-extension-list"
+
+[[annotations]]
+path = "data/**.csv"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Dyne.org foundation <info@dyne.org>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "pub/**.json"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Dyne.org foundation <info@dyne.org>"
+SPDX-License-Identifier = "CC0-1.0"
