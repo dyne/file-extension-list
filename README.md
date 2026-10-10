@@ -40,6 +40,7 @@ Each category is a file named after a generic typology stored in `data/categorie
 
 | file.csv | description |
 | --- | ---------- |
+| [archive](data/categories/3D.csv)  | 3D CAD and 3D printing |
 | [archive](data/categories/archive.csv)  | archives and disc images |
 | [audio](data/categories/audio.csv)  | playable audio |
 | [book](data/categories/book.csv)  | electronic books |
