@@ -8,7 +8,8 @@
 
 # This is free and unencumbered software released into the public domain.
 
-# This script lists all duplicate extensions,
+# This script lists all extensions
+# present in more then one category,
 # and the categories they are contained in.
 
 # Exit immediately on each error and unset variable;
