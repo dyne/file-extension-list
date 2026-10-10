@@ -6,7 +6,10 @@ SPDX-License-Identifier: CC0-1.0
 # File Extension List render scripts
 
 The shell script [list](list) will print a list of
-categories and extensions associated on each line.
+categories and extensions associated on each line,
+while [list-duplicates](list-duplicates) only prints the extensions
+present in more then one category,
+plus all categories per such extension.
 
 The shell scripts [json-categories](json-categories) and
 [json-extensions](json-extensions) will produce key/value maps
