@@ -8,7 +8,7 @@ help: ## Display this help.
 
 list: ## list all categories and extensions
 	@sh ./render/list
-dups: ## list all duplicate extensions present in more categories
+dups: ## list all extensions present in more then one category
 	@sh ./render/list-duplicates
 
 json-categories: ## build the json dictionary for { category: [ extensions.. ], .. }
@@ -17,7 +17,7 @@ json-categories: ## build the json dictionary for { category: [ extensions.. ], 
 json-extensions: ## build the json dictionary for { extension: [ category ], .. }
 	@sh ./render/json-extensions
 
-shell-script: ## creates a shell script capable of parsing extensions
+shell-script: ## create a shell script capable of parsing extensions
 	@sh ./render/build-ext2cat
 
 release: ## update the local render in pub/ for release
