@@ -14,5 +14,4 @@ per-category and per-extension like those distributed in
 [pub](../pub).
 
 The shell script [build-ext2cat](build-ext2cat) renders another shell
-script that be used to quickly categorize files on the command-line.
-
+script that can be used to quickly categorize files on the command-line.
