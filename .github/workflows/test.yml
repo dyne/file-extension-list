@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+name: Check repository content for correctness
+
+on: [push]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Run tests
+      run: scripts/check
