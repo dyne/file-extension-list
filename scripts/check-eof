@@ -1,0 +1,74 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2026 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+tmp_dir="$build_dir/tmp"
+data_dir="$proj_dir/data"
+
+exit_code=0
+
+mkdir -p "$build_dir"
+mkdir -p "$tmp_dir"
+
+cd "$data_dir"
+
+data_files_listing="$tmp_dir/categories_files_listing.tsv"
+find . -name '*.csv' | sed -e 's|^\./||' > "$data_files_listing"
+
+_check_new_line_at_eof() {
+    file="$1"
+    last_char_hex="$(tail -c 1 "$file" | xxd -p)"
+    if ! [ "$last_char_hex" = "0a" ]
+    then
+        >&2 echo "Missing new-line at end of file (EOF): '$file'"
+        return 1
+    fi
+    return 0
+}
+
+_check_no_double_new_line_at_eof() {
+    file="$1"
+    second_last_char_hex="$(tail -c 2 "$file" | head -c 1 | xxd -p)"
+    if [ "$second_last_char_hex" = "0a" ]
+    then
+        >&2 echo "Too many new-lines at end of file (EOF): '$file'"
+        return 1
+    fi
+    return 0
+}
+
+missing_new_lines=0
+too_many_new_lines=0
+while read -r csv
+do
+    if ! _check_new_line_at_eof "$csv"
+    then
+        missing_new_lines=$((missing_new_lines + 1))
+    fi
+    if ! _check_no_double_new_line_at_eof "$csv"
+    then
+        too_many_new_lines=$((too_many_new_lines + 1))
+    fi
+done < "$data_files_listing"
+if [ $missing_new_lines -gt 0 ]
+then
+    exit_code=$((exit_code + 2))
+fi
+if [ $too_many_new_lines -gt 0 ]
+then
+    exit_code=$((exit_code + 4))
+fi
+
+rm -Rf "$tmp_dir"
+
+exit $exit_code
