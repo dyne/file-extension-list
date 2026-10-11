@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# SPDX-FileCopyrightText: 2021 Robin Vobruba <hoijui.quaero@gmail.com>
+# SPDX-FileCopyrightText: 2021-2026 Robin Vobruba <hoijui.quaero@gmail.com>
 #
 # SPDX-License-Identifier: Unlicense
 
@@ -24,4 +24,4 @@ mkdir -p "$build_dir"
 "$gen_scripts_dir/list"            > "$build_dir/list.txt"
 "$gen_scripts_dir/list-duplicates" > "$build_dir/list-duplicates.txt"
 
-"$gen_scripts_dir/build-ext2cat"
+"$gen_scripts_dir/build-ext2cat"   > "$build_dir/ext2cat.sh"
