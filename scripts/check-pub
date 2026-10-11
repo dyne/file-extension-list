@@ -1,0 +1,88 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2026 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_path_rel="$0"
+script_path=$(readlink -f "$script_path_rel")
+script_dir=$(dirname "$script_path")
+script_name=$(basename "$script_path")
+proj_dir="$(cd "$script_dir"/..; pwd)"
+build_dir="$proj_dir/build"
+pub_dir="$proj_dir/pub"
+
+exit_code=0
+fix=false
+
+print_help() {
+
+	echo "$script_name - Check if the generated files in pub/"
+	echo "are up to date with data/."
+	echo "Also allows to fix/regenerate them."
+	echo
+	echo "Usage:"
+	echo "  $script_name [OPTION...]"
+	echo "Options:"
+	echo "  -h, --help"
+	echo "    Show this help message and exit"
+	echo "  --fix"
+	echo "    Updates/Regenerates the files in pub/"
+}
+
+# read command-line args
+i=1
+while [ "$i" -le "$#" ]
+do
+	arg="$(eval "echo \$$i")"
+
+	case "$arg" in
+		-h|--help)
+			shift "$i"
+			print_help
+			exit 0
+			;;
+		--fix)
+			shift "$i"
+			fix=true
+			;;
+		*) # non-/unknown option
+			i=$((i + 1))
+			;;
+	esac
+done
+
+"$script_dir/build"
+
+_compare() {
+	exit_code_addition="$1"
+	file_name="$2"
+	if ! diff "$build_dir/$file_name" "$pub_dir/$file_name" > /dev/null
+	then
+		if $fix
+		then
+			cp "$build_dir/$file_name" "$pub_dir/"
+		else
+			>&2 echo "WARNING: File is not up to date: '$pub_dir/$file_name'"
+			exit_code=$((exit_code + exit_code_addition))
+		fi
+	fi
+}
+
+_compare 1 "categories.json"
+_compare 2 "extensions.json"
+
+if [ $exit_code -ne 0 ]
+then
+	{
+	echo "WARNING: You may update all generated files by using --fix:"
+	echo "         $script_path_rel --fix"
+	} >&2
+fi
+
+exit $exit_code
