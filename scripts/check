@@ -1,0 +1,132 @@
+#!/usr/bin/env sh
+
+# SPDX-FileCopyrightText: 2021-2026 Robin Vobruba <hoijui.quaero@gmail.com>
+#
+# SPDX-License-Identifier: Unlicense
+
+# Exit immediately on each error and unset variable;
+# see: https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+#set -Eeuo pipefail
+set -eu
+
+script_dir=$(dirname "$(readlink -f "$0")")
+
+tests=0
+failures=0
+failed_tests_list=""
+
+_report_test_res() {
+	res="$1"
+	t_human_id="$2"
+	printf "TEST: %s - " "$t_human_id"
+	if [ "$res" -eq 0 ]
+	then
+		echo "succeeded."
+	else
+		echo "failed."
+	fi
+}
+
+echo
+echo
+t_human_id="'eof' - Data files end with a single new-line"
+echo "TEST: $t_human_id ..."
+failed=0
+"$script_dir/check-eof" || failed=1
+failures=$((failures + failed))
+tests=$((tests + 1))
+_report_test_res "$failed" "$t_human_id"
+if [ "$failed" = "1" ]
+then
+	failed_tests_list="${failed_tests_list}- $t_human_id\n"
+fi
+
+echo
+echo
+t_human_id="'format' - CSV files have the correct number of columns and valid values"
+echo "TEST: $t_human_id ..."
+failed=0
+"$script_dir/check-format" || failed=1
+failures=$((failures + failed))
+tests=$((tests + 1))
+_report_test_res "$failed" "$t_human_id"
+if [ "$failed" = "1" ]
+then
+	failed_tests_list="${failed_tests_list}- $t_human_id\n"
+fi
+
+echo
+echo
+t_human_id="'order' - CSV file rows are sorted in alphabetic order"
+echo "TEST: $t_human_id ..."
+failed=0
+"$script_dir/check-order" || failed=1
+failures=$((failures + failed))
+tests=$((tests + 1))
+_report_test_res "$failed" "$t_human_id"
+if [ "$failed" = "1" ]
+then
+	failed_tests_list="${failed_tests_list}- $t_human_id\n"
+fi
+
+echo
+echo
+t_human_id="'duplication-markers' - % is semantically used correctly in data/categories/*.csv"
+echo "TEST: $t_human_id ..."
+failed=0
+"$script_dir/check-duplication-markers" || failed=1
+failures=$((failures + failed))
+tests=$((tests + 1))
+_report_test_res "$failed" "$t_human_id"
+if [ "$failed" = "1" ]
+then
+	failed_tests_list="${failed_tests_list}- $t_human_id\n"
+fi
+
+echo
+echo
+t_human_id="'pub' - Are the generated files in pub/ up to date?"
+echo "TEST: $t_human_id ..."
+failed=0
+"$script_dir/check-pub" || failed=1
+failures=$((failures + failed))
+tests=$((tests + 1))
+_report_test_res "$failed" "$t_human_id"
+if [ "$failed" = "1" ]
+then
+	failed_tests_list="${failed_tests_list}- $t_human_id\n"
+fi
+
+echo
+echo
+t_human_id="'REUSE' - Licensing meta-data check"
+echo "TEST: $t_human_id ..."
+if which reuse > /dev/null
+then
+	failed=0
+	reuse lint || failed=1
+	failures=$((failures + failed))
+	tests=$((tests + 1))
+	_report_test_res "$failed" "$t_human_id"
+	if [ "$failed" = "1" ]
+	then
+		failed_tests_list="${failed_tests_list}- $t_human_id\n"
+	fi
+	else
+	>&2 echo "WARNING: REUSE tool not found; skipping licensing meta-data check."
+fi
+
+echo
+echo
+echo "Successful tests: $((tests - failures))/$tests"
+if [ $failures -eq 0 ]
+then
+	echo "All tests successful!"
+else
+	{
+	echo "There were $failures test failures:"
+	echo "$failed_tests_list"
+	} >&2
+fi
+
+exit $failures
