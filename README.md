@@ -41,7 +41,7 @@ stored in [`data/categories/`](data/categories/):
 
 | file.csv | description |
 | --- | ---------- |
-| [archive](data/categories/3D.csv) | 3D CAD and 3D printing |
+| [3D](data/categories/3D.csv) | 3D CAD and 3D printing |
 | [archive](data/categories/archive.csv) | archives and disc images |
 | [audio](data/categories/audio.csv) | playable audio |
 | [book](data/categories/book.csv) | electronic books |
