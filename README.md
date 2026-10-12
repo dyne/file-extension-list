@@ -41,19 +41,19 @@ stored in [`data/categories/`](data/categories/):
 
 | file.csv | description |
 | --- | ---------- |
-| [archive](data/categories/3D.csv)  | 3D CAD and 3D printing |
-| [archive](data/categories/archive.csv)  | archives and disc images |
-| [audio](data/categories/audio.csv)  | playable audio |
-| [book](data/categories/book.csv)  | electronic books |
-| [code](data/categories/code.csv)  | code in machine languages |
-| [exec](data/categories/exec.csv)  | executable binaries |
-| [font](data/categories/font.csv)  | typography fonts |
-| [image](data/categories/image.csv)  | static images |
-| [sheet](data/categories/sheet.csv)  | spreadsheets |
-| [slide](data/categories/slide.csv)  | presentations and slides |
-| [text](data/categories/text.csv)  | text in human languages |
-| [video](data/categories/video.csv)  | moving images |
-| [web](data/categories/web.csv)  | web developers bread and butter |
+| [archive](data/categories/3D.csv) | 3D CAD and 3D printing |
+| [archive](data/categories/archive.csv) | archives and disc images |
+| [audio](data/categories/audio.csv) | playable audio |
+| [book](data/categories/book.csv) | electronic books |
+| [code](data/categories/code.csv) | code in machine languages |
+| [exec](data/categories/exec.csv) | executable binaries |
+| [font](data/categories/font.csv) | typography fonts |
+| [image](data/categories/image.csv) | static images |
+| [sheet](data/categories/sheet.csv) | spreadsheets |
+| [slide](data/categories/slide.csv) | presentations and slides |
+| [text](data/categories/text.csv) | text in human languages |
+| [video](data/categories/video.csv) | moving images |
+| [web](data/categories/web.csv) | web developers bread and butter |
 
 Inside each category file there is a file extension string
 in the first column.
