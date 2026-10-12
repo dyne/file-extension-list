@@ -62,7 +62,9 @@ and knowing how standards go: it will never be.
 [We welcome your contribution](
 https://github.com/dyne/file-extension-list/pulls).
 
-Some extensions (for instance `html`, see #10 and #11)
+Some extensions (for instance `html`, see issues
+[#10](https://github.com/dyne/file-extension-list/pull/10) and
+[#11](https://github.com/dyne/file-extension-list/pull/11))
 may belong to more than one category:
 `code` or `web`.
 In these cases, any extra occurrence of the extension
