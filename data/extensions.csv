@@ -32,8 +32,6 @@ sldasm,-,b
 sldprt,-,b
 sms,-,b
 step,-,t
-step,-,t
-stl,o,b
 stl,o,b
 stp,-,t
 stp,-,t
