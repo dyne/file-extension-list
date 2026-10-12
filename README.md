@@ -98,7 +98,7 @@ The current data is available for download in JSON format:
 To change extensions and categories one can edit them inside the
 `data/` directory and then use `make` to render new JSON files:
 
-```
+```text
 Usage:
   make <target>
 
@@ -114,7 +114,7 @@ General
 Launching `make list` will print on your terminal all currently known
 extensions by category, for example:
 
-```
+```text
 archive: 7z a apk ar bz2 cab cpio deb dmg egg gz iso jar lha mar pea rar rpm s7z shar tar tbz2 tgz tlz war whl xpi zip zipx xz pak
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa pls ra s3m sid wav wma xm
 book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
