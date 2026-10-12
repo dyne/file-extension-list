@@ -149,7 +149,10 @@ You are welcome to let us know if you are using it too.
 
 ## License
 
-File-extension-list is maintained by [Jaromil](/jaromil), [Puria](/puria) and [Hoijui](/hoijui).
+File-extension-list is maintained by
+[Jaromil](https://github.com/jaromil),
+[Puria](https://github.com/puria) and
+[Hoijui](https://github.com/hoijui).
 
 This is free and unencumbered software released into the public domain.
 
