@@ -1,13 +1,13 @@
-3D: 3ds f3d 3mf smt stp step stl obj gcode scad
-archive: 7z a aar apk ar bz2 br cab cpio deb dmg egg gz iso jar lha lz lz4 lzma lzo mar pea rar rpm s7z shar tar tbz2 tgz tlz txz war whl xpi zip zipx zst xz pak
+3D: 3dm 3ds 3mf f3d gcode obj scad smt step stl stp
+archive: 7z a aar apk ar br bz2 cab cpio deb dmg egg gz iso jar lha lz lz4 lzma lzo mar pak pea rar rpm s7z shar tar tbz2 tgz tlz txz war whl xpi xz zip zipx zst
 audio: aac aiff ape au flac gsm it m3u m4a mid mod mp3 mpa ogg opus pls ra s3m sid wav wma xm
-book: mobi epub azw1 azw3 azw4 azw6 azw cbr cbz
-code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj cob cpp cs csh cxx d diff dll e el f f77 f90 fish for fth ftn go groovy h hh hpp hs htm html hxx inc java js json jsp jsx ksh kt kts lhs lisp lua m m4 nim patch php php3 php4 php5 phtml pl po pp prql py ps1 psd1 psm1 ps1xml psc1 pssc psrc r rb rs s scala sh sql swg swift v vb vcxproj wll xcodeproj xml xll zig zsh
-exec: exe msi bin cmd com command sh bat crx bash csh fish ksh zsh
+book: azw azw1 azw3 azw4 azw6 cbr cbz epub mobi
+code: 1.ada 2.ada ada adb ads asm asp aspx bas bash bat c++ c cbl cc class clj cob cpp cs csh cxx d diff dll e el f f77 f90 fish for fth ftn go groovy h hh hpp hs htm html hxx inc java js json jsp jsx ksh kt kts lhs lisp lua m m4 nim patch php php3 php4 php5 phtml pl po pp prql ps1 ps1xml psc1 psd1 psm1 psrc pssc py r rb rs s scala sh sql swg swift ts tsx v vb vcxproj wll xcodeproj xll xml zig zsh
+exec: bash bat bin cmd com command crx csh exe fish ksh msi sh zsh
 font: eot otf ttf woff woff2
-image: 3dm 3ds max avif bmp dds gif heic heif jpg jpeg jxl png psd xcf tga thm tif tiff yuv ai eps ps svg dwg dxf gpx kml kmz webp
-sheet: ods xls xlsx csv tsv ics vcf
-slide: ppt pptx odp
-text: doc docx ebook log md msg odt org pages pdf rtf rst tex txt wpd wps
-video: 3g2 3gp aaf asf avchd avi car dav drc flv m2v m2ts m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mts mxf nsv ogv ogm ogx qt rm rmvb roq srt svi vob webm wmv xba yuv
+image: ai avif bmp dds dwg dxf eps gif gpx heic heif jpeg jpg jxl kml kmz max png ps psd svg tga thm tif tiff webp xcf yuv
+sheet: csv ics ods tsv vcf xls xlsx
+slide: odp ppt pptx
+text: doc docx ebook log md msg odt org pages pdf rst rtf tex txt wpd wps
+video: 3g2 3gp aaf asf avchd avi car dav drc flv m2ts m2v m4p m4v mkv mng mov mp2 mp4 mpe mpeg mpg mpv mts mxf nsv ogm ogv ogx qt rm rmvb roq srt svi vob webm wmv xba yuv
 web: asp aspx css htm html inc js jsp jsx less php php3 php4 php5 phtml scss ts tsx wasm
