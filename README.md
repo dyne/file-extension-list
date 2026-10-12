@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2020-2021 Dyne.org foundation <info@dyne.org>
+SPDX-FileCopyrightText: 2020-2026 Dyne.org foundation <info@dyne.org>
 SPDX-License-Identifier: CC0-1.0
 -->
 
@@ -28,7 +28,7 @@ Such an approach works much faster than recognition by mime/type or using
 https://www.commandlinux.com/man-page/man3/libmagic.3.html), but is of
 course less precise.
 
-The raw data is under [data](data), while generated formats and tools
+The raw data is under [`data/`](data), while generated formats and tools
 can be found on the [projects pages](
 https://dyne.github.io/file-extension-list).
 
@@ -36,7 +36,8 @@ https://dyne.github.io/file-extension-list).
 
 ### Categories
 
-Each category is a file named after a generic typology stored in `data/categories/`:
+Each category is a file named after a generic typology
+stored in [`data/categories/`](data/categories/):
 
 | file.csv | description |
 | --- | ---------- |
@@ -132,7 +133,7 @@ web: html htm css js jsx less scss wasm php
 
 You are meant to write your own code to parse file-extension-list.
 
-This repository contains some example code in [./render](render).
+This repository contains some example code in [`render/`](render/).
 
 To contribute, please file a pull request on
 <https://github.com/dyne/file-extension-list/pulls>
